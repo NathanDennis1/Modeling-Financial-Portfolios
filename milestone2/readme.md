@@ -11,7 +11,7 @@ Points (Monday):
   
 3. Data scaling:
    - Divide it into 2 subtopics: Using Time series vs Not using Time Series
-   - When using Time series Cross validation, we cannot use global scaling because then future data will impact past data causing optimistic results and biasness
+   - When using Time series Cross validation, we cannot use global scaling because then future data will impact past data causing optimistic results and biasness - so we need to implement standardization separately in each fold.
    - When not using Time series cross validation, we can use standardization
      
 4. Additional Preprocessing:
