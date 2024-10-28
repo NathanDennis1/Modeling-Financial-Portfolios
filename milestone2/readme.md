@@ -13,3 +13,6 @@ Points (Monday):
    - Divide it into 2 subtopics: Using Time series vs Not using Time Series
    - When using Time series Cross validation, we cannot use global scaling because then future data will impact past data causing optimistic results and biasness
    - When not using Time series cross validation, we can use standardization
+     
+4. Additional Preprocessing:
+   - Before January 2023, data is the `VALUE` column of `INFOTABLE` is reported is thousands of USD. After that, `VALUE` is reported rounded to the nearest USD. If we look at previous quarters, we must preprocess the data accordingly.
