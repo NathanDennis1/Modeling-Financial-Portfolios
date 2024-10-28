@@ -16,3 +16,4 @@ Points (Monday):
      
 4. Additional Preprocessing:
    - Before January 2023, data is the `VALUE` column of `INFOTABLE` is reported is thousands of USD. After that, `VALUE` is reported rounded to the nearest USD. If we look at previous quarters, we must preprocess the data accordingly.
+   - Mention how we can leverage database (like sql) to effectively handle large computational needs.
