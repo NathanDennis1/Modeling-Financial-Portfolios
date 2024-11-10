@@ -3,12 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-FORM13F.db
-
-data/
-INFOTABLE_2023q4.tsv
-infotable_dataset.csv
-
 # C extensions
 *.so
 
