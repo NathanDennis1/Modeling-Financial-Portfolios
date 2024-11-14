@@ -9,6 +9,9 @@ data/
 INFOTABLE_2023q4.tsv
 infotable_dataset.csv
 
+edgar_tools.ipynb
+
+
 # C extensions
 *.so
 
