@@ -6,7 +6,7 @@ from helper import get_stats, UnitedStatesIndicator, get_country_state
 from constants import main_path
 
 def assemble_dataset():
-    df_cover = pd.read_csv(f'{main_path}/2024_Q2/COVERPAGE.tsv', sep='\t')
+    df_cover = pd.read_csv(f'{main_path}/COVERPAGE.tsv', sep='\t')
     df_info = pd.read_csv(f'{main_path}/INFOTABLE.tsv', sep='\t')
     df_summary = pd.read_csv(f'{main_path}/SUMMARYPAGE.tsv', sep='\t')
     
