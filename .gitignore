@@ -9,6 +9,14 @@ data/
 INFOTABLE_2023q4.tsv
 infotable_dataset.csv
 
+timeseries_prophet.py
+timeseries_process.py
+timeseries_lstm.py
+timeseries_assemble_data.py
+timeseries_arima.py
+timeseries_eda.ipynb
+
+
 edgar_tools.ipynb
 
 
