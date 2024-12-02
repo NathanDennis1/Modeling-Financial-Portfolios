@@ -32,7 +32,7 @@ def get_stats(df_info):
     return df_stats
 
 def UnitedStatesIndicator(x):
-        state_df = pd.read_csv("../../data/state_list.csv")
+        state_df = pd.read_csv("../data/state_list.csv")
         state_set = set(list(state_df['Abbreviation']))
         return (x in state_set) # check if the location is in the US based on the state abbreviation
     
@@ -40,7 +40,7 @@ def get_country_state(x):
     # Initialize an empty dictionary
     state_dict = {}
     # Open the CSV file
-    with open('../../data/state_country_abbreviations.csv', mode='r') as file:
+    with open('../data/state_country_abbreviations.csv', mode='r') as file:
         reader = csv.reader(file,skipinitialspace = True)
         # Iterate through the rows in the file
         for row in reader:
@@ -84,9 +84,9 @@ from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.model_selection import train_test_split
 
 def assemble_dataset():
-    df_cover = pd.read_csv(f'{main_path}/COVERPAGE.tsv', sep='\t')
-    df_info = pd.read_csv(f'{main_path}/INFOTABLE.tsv', sep='\t')
-    df_summary = pd.read_csv(f'{main_path}/SUMMARYPAGE.tsv', sep='\t')
+    df_cover = pd.read_csv(f'{main_path}/COVERPAGE.tsv', sep='\t', low_memory=False)
+    df_info = pd.read_csv(f'{main_path}/INFOTABLE.tsv', sep='\t', low_memory=False)
+    df_summary = pd.read_csv(f'{main_path}/SUMMARYPAGE.tsv', sep='\t', low_memory=False)
     
     df_info = df_info[df_info['SSHPRNAMTTYPE'] == 'SH']
     df_info = df_info[df_info['ACCESSION_NUMBER'] != '0001104659-24-089646']
@@ -104,7 +104,7 @@ def assemble_dataset():
     # New dataframe for summary stats
     df_stats = get_stats(df_info)
     
-    df_state_gdp = pd.read_csv("../../data/state-gdp.csv")
+    df_state_gdp = pd.read_csv("../data/state-gdp.csv")
     df_us2 = df_us
     df_us2 = df_us2.merge(right=df_stats, how='left',on='ACCESSION_NUMBER')
     df_us2['FILINGMANAGER_CITY'] = df_us2['FILINGMANAGER_CITY'].str.lower()

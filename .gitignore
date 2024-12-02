@@ -16,6 +16,11 @@ timeseries_assemble_data.py
 timeseries_arima.py
 timeseries_eda.ipynb
 
+INFOTABLE_2023q4.tsv
+infotable_dataset.csv
+INFOTABLE_2023q3.tsv
+INFOTABLE_2024q3.tsv
+df_star.csv
 
 edgar_tools.ipynb
 
