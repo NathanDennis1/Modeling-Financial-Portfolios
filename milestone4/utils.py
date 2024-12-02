@@ -234,3 +234,55 @@ def implement_random_forest(X_train, y_train, X_test, y_test, n_estimators=100, 
     
     return scores.mean(), scores.std(), model.feature_importances_, y_pred_train, y_pred_test
 
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import make_scorer, r2_score
+
+def implement_random_forest_with_grid_search(X_train, y_train, X_test, y_test, param_grid=None, k=5):
+    # Define the default parameter grid if not provided
+    if param_grid is None:
+        param_grid = {
+            'n_estimators'      : [100, 200, 300],
+            'max_depth'         : [5, 10, 20],
+            'min_samples_split' : [2, 5, 10],
+            'min_samples_leaf'  : [1, 2, 4]
+        }
+    
+    # Define the model
+    model = RandomForestRegressor(random_state=0, n_jobs=-1)
+    
+    # Define the scorer for optimization
+    scorer = make_scorer(r2_score)
+    
+    # Set up GridSearchCV
+    grid_search = GridSearchCV(
+        estimator=model,
+        param_grid=param_grid,
+        scoring=scorer,
+        cv=k,  # Number of folds in cross-validation
+        n_jobs=-1  # Use all available cores
+    )
+    
+    # Perform grid search
+    grid_search.fit(X_train, y_train)
+    
+    # Best model from grid search
+    best_model = grid_search.best_estimator_
+    print(f"Best parameters: {grid_search.best_params_}")
+    print(f"Best cross-validated R^2 score: {grid_search.best_score_}")
+    
+    # Fit the best model on the training data
+    best_model.fit(X_train, y_train)
+    
+    # Get predictions
+    y_pred_train = best_model.predict(X_train)
+    y_pred_test = best_model.predict(X_test)
+    
+    return (
+        grid_search.best_score_,            # Best cross-validation score
+        grid_search.cv_results_,            # Grid search results
+        best_model.feature_importances_,    # Feature importances of the best model
+        y_pred_train,                       # Predictions for training set
+        y_pred_test,                        # Predictions for test set
+        best_model                          # The best model itself
+    )
