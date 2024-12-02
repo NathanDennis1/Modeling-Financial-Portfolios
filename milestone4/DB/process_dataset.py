@@ -64,8 +64,6 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = process_dataset(X_train, X_test, y_train, y_test)
 
     # Save to CSV files
-
-    # Save to CSV files
     X_train.to_csv("../../data/2024_Q2/X_train.csv", index=False)
     X_test.to_csv("../../data/2024_Q2/X_test.csv", index=False)
     y_train.to_csv("../../data/2024_Q2/y_train.csv", index=False)

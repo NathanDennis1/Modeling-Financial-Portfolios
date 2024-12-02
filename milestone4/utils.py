@@ -49,7 +49,7 @@ def get_country_state(x):
     try: return state_dict[x]
     except KeyError: return np.nan
     
-main_path = "../../data/2024q3"
+main_path = "../data/2024q3"
 
 features = [
         'TABLEENTRYTOTAL',
@@ -108,8 +108,6 @@ def assemble_dataset():
     df_us2 = df_us
     df_us2 = df_us2.merge(right=df_stats, how='left',on='ACCESSION_NUMBER')
     df_us2['FILINGMANAGER_CITY'] = df_us2['FILINGMANAGER_CITY'].str.lower()
-    
-    from constants import features
     
     feature_list = features + ['OTHERINCLUDEDMANAGERSCOUNT', 'US_Indicator']
     df_star = df_us2[feature_list]  
