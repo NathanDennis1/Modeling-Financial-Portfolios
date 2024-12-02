@@ -181,7 +181,7 @@ def implement_decision_tree(X_train, y_train, X_test, y_test, max_depth=10, min_
     y_pred_train = model.predict(X_train)
     y_pred_test = model.predict(X_test)
     
-    return scores.mean(), scores.std(), model.feature_importances_, y_pred_train, y_pred_test
+    return scores.mean(), scores.std(), model.feature_importances_, y_pred_train, y_pred_test, model
 
 def get_performance_metrics(y_true, y_pred):
     r2 = r2_score(y_true, y_pred)
