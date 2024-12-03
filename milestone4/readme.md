@@ -8,7 +8,7 @@ Now, XGBoost is similar to Gradient Boosting in the sense that it builds an ense
 
 ### Regularization/Shrinkage
 
-XGBoost incorporates both L1 (Lasso) and L2 (Ridge) Regularization terms in the objective/loss function. Similar to other regression techniques such as linear or logistic regression, these regularization parameters help to prevent overfitting by penalizing overly complex models and makes the final ensemble more robust. The L1 regularization can push leaf weights to 0, similar to lasso in linear regression and can remove features from the model entirely which can be seen as feature selection. In our case, the loss function is the mean squared error.
+XGBoost incorporates both L1 (Lasso) and L2 (Ridge) Regularization terms in the objective/loss function. Similar to other regression techniques such as linear or logistic regression, these regularization parameters help to prevent overfitting by penalizing overly complex models and makes the final ensemble more robust. The L1 regularization can push leaf weights to 0, similar to lasso in linear regression and can remove features from the model entirely which can be seen as feature selection. L2 can help reduce impact of large weights. In our case, the loss function is the mean squared error and is defined below:
 
 $$
 \begin{align*}
@@ -16,7 +16,7 @@ L = \sum_{i=1}^N L(y_i, \hat{y_i}) + \lambda \sum_{t=1}^T w_t^2 + \alpha \sum_{t
 \end{align*}
 $$
 
-Where $\lambda$ is the L2 regularization parameter and $\alpha$ is the L1 regularization parameter. The first Loss is summed over all training examples, the MSE. The second and third sum represent the regularization term applied to the weights of the leaves in the decision trees, summing over all the T trees in the ensemble.
+Where $\lambda$ is the L2 regularization parameter and $\alpha$ is the L1 regularization parameter, then $w_t$ the weight of the leaf node of the t-th tree. Also, $N$ is the number of training samples, $T$ the number of total trees in the ensemble and $L = \sum_{i=1}^N L(y_i, \hat{y_i})$ is the original MSE loss function. The first Loss is summed over all training examples, the MSE. The second and third sum represent the regularization term applied to the weights of the leaves in the decision trees, summing over all the T trees in the ensemble. This is the major difference we found compared to other boosting algorithms we covered in the class, these regularization terms.
 
 ### Parallelization
 
