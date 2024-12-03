@@ -167,9 +167,9 @@ def implement_decision_tree(X_train, y_train, X_test, y_test, max_depth=10, min_
     model = DecisionTreeRegressor(
         max_depth=max_depth,
         min_samples_split=min_samples_split,
-        random_state=42
+        random_state=0
     )
-    kf = KFold(n_splits=k, shuffle=True, random_state=42)
+    kf = KFold(n_splits=k, shuffle=True, random_state=0)
     
     # Perform cross-validation
     scores = cross_val_score(model, X_train, y_train, cv=kf, scoring='r2')
@@ -217,10 +217,10 @@ def implement_random_forest(X_train, y_train, X_test, y_test, n_estimators=100, 
         n_estimators=n_estimators,
         max_depth=max_depth,
         min_samples_split=min_samples_split,
-        random_state=42,
+        random_state=0,
         n_jobs=-1  # Use all available cores
     )
-    kf = KFold(n_splits=k, shuffle=True, random_state=42)
+    kf = KFold(n_splits=k, shuffle=True, random_state=0)
     
     # Perform cross-validation
     scores = cross_val_score(model, X_train, y_train, cv=kf, scoring='r2')

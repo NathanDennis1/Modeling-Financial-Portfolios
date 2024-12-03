@@ -20,15 +20,11 @@ Where $\lambda$ is the L2 regularization parameter and $\alpha$ is the L1 regula
 
 ### Parallelization
 
-XGBoost can parallelize the tree building process, but this doesn't mean training multiple trees in parallel but rather finding the optimal splits within each tree. It parallelizes the computation of splits for each node in the tree, when we find the best possible split at each node we have to evaluate every feature at different feature thresholds to find which to split on. Instead of checking ont at a time, XGBoost performs this in parallel, meaning it evaluates multiple splits at the same time which speeds up the process of finding the best split.
+XGBoost can parallelize the tree building process, but this doesn't mean training multiple trees in parallel but rather finding the optimal splits within each tree. It parallelizes the computation of splits for each node in the tree. When we find the best possible split at each node in other methods, we have to evaluate every feature at different feature thresholds to find which to split on. Instead of checking one at a time, XGBoost performs this in parallel, meaning it evaluates multiple splits at the same time across different features which speeds up the process of finding the best split and the overall training process.
 
 ### Tree Pruning
 
-XGBoost uses depth-first growth rather than the traditional level order we discussed in class regarding single decision trees. The tree is growth depth-first, it makes all of the splits along one path for a branch first before moving to the next branch. This helps to improve the computation performance of the algorithm.
-
-### Feature Importance
-
-We can easily extract the feature importance from XGBoost models, in contrast to Gradient Boosting models which require external steps.
+XGBoost uses depth-first growth rather than the traditional level order growth we discussed in class regarding single decision trees. The tree is growth depth-first, it makes all of the splits along one path for a branch first before moving to the next branch. Basically, the algorithm fully expands one branch before moving onto the next unlike level-order which processes each level (depth) sequentially. This helps to improve the computation performance of the algorithm
 
 ### References
 
