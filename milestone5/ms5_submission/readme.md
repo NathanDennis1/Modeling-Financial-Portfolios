@@ -1,4 +1,4 @@
-# Milestone 4 readme
+# Milestone 5 readme
 
 - David Bombara, Aditya Saxena, and Nathan Dennis
 - AC 209A Class Project
@@ -47,7 +47,7 @@ XGBoost can parallelize the tree building process, but this doesn't mean trainin
 
 ### Tree Pruning
 
-XGBoost uses depth-first growth rather than the traditional level order growth we discussed in class regarding single decision trees. The tree is growth depth-first, it makes all of the splits along one path for a branch first before moving to the next branch. Basically, the algorithm fully expands one branch before moving onto the next unlike level-order which processes each level (depth) sequentially. This helps to improve the computation performance of the algorithm
+XGBoost uses depth-first growth rather than the traditional level order growth we discussed in class regarding single decision trees. The tree is growth depth-first, it makes all of the splits along one path for a branch first before moving to the next branch. Basically, the algorithm fully expands one branch before moving onto the next unlike level-order which processes each level (depth) sequentially. This can help to improve the computation performance of the algorithm.
 
 ### References
 
@@ -61,6 +61,6 @@ https://gabrieltseng.github.io/posts/2018-02-25-XGB/
 
 XGBoost starts with a simple model, such as a stump or depth 2 decision tree. It adds decision trees sequentially in the same manner as Gradient Boosting, where the second tree will try to correct the mistakes from the initial model's residuals. Trees are added sequentially to the model, every tree trying to correct the residuals of the previous model. As stated previously, XGBoost uses a depth-first tree growth growing one branch at a time before the next node, but if the trees are stumps it is essentially the same as level-order growth.
 
-The objective function in XGBoost is made up of 2 parts, a loss function to measure how far off the model's predictions are from the true values, and the regularizaiton term to prevent the model from overfitting by penalizing overly complex trees. The XGBoost algorithm wants to minimize this objective function in training the model, it attempts to both reduce the loss in the current tree by improving predictions on the training data and keep model complexity low. At each split, the algorithm will look for the best feature to split and minimize the objective function, considering both reduction in the loss function and complexity penalty.
+The objective function in XGBoost is made up of 2 parts, a loss function to measure how far off the model's predictions are from the true values (such as MSE or RMSE), and the regularization term to prevent the model from overfitting by penalizing overly complex trees as described earlier. The XGBoost algorithm wants to minimize this objective function in training the model, it attempts to both reduce the loss in the current tree by improving predictions on the training data and keep model complexity low. At each split, the algorithm will look for the best feature to split and minimize the objective function, considering both reduction in the loss function and complexity penalty.
 
-The XGBoost algorithm uses a depth-first tree growth, exploring one branch fully before moving to the next. The algorithm stops once some maximum number of estimators/trees is reached, in which case the final model is created based on the combination of all previous models.
+The XGBoost algorithm uses a depth-first tree growth, exploring one branch fully before moving to the next. The algorithm stops once some maximum number of estimators/trees is reached, in which case the final model is created based on the combination of all previous models. XGBoost is seen as faster than other Boosting methods such as Gradient Boosting primarily due to the parallelization mentioned earlier.
