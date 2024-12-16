@@ -8,7 +8,7 @@
 - `data/` contains the data files used in the project
 - `main_notebook/` contains the notebook used to generate the results.
 - `utils.py` contains the utility functions used in the notebook.
-- `MS4_Combined.ipynb` contains the Jupyter notebook.
+- `Final_Notebook.ipynb` contains the Jupyter notebook.
 - `requirements.txt` contains the required packages to run the notebook.
 
 ## Project Description
