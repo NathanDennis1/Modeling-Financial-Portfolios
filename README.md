@@ -1,6 +1,8 @@
-# COMPSCI 1090A Project Timeline
+# Content Description
 
-[Project Timeline Link](https://edstem.org/us/courses/59912/lessons/113457/slides/622103)
+This github contains the code and milestones for each step in my groups project for AC209a at Harvard University. Milestone5 contains the final notebook for submission with all relevant code and explainations.
+
+# COMPSCI 1090A Project Timeline
 
 The details below outline each stage of the CS 1090A project journey:
 
