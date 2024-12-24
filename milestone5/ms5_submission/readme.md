@@ -5,7 +5,7 @@
 
 ## Project Structure
 
-- `data/` contains the data files used in the project
+- `data/` contains the data files used in the project.
 - `main_notebook/` contains the notebook used to generate the results.
 - `utils.py` contains the utility functions used in the notebook.
 - `Final_Notebook.ipynb` contains the Jupyter notebook.
